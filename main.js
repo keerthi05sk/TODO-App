@@ -24,7 +24,7 @@ form.addEventListener("submit",(e)=>{
         add.setAttribute("data-bs-dismiss","modal");
         add.click();
 
-        /*IIFE(immediately invocked function element)*/
+        /*IIFE*/
         (()=>{
             add.setAttribute("data-bs-dismiss","");
         })();
@@ -41,7 +41,7 @@ let acceptData=()=>{
         description:textarea.value,
     });
     
-   localStorage.setItem("data" ,JSON.stringify(data));/*stored the data in inside the local storage*/
+   localStorage.setItem("data" ,JSON.stringify(data));
    console.log(data);
    
 
@@ -67,8 +67,8 @@ resetForm();
 };
 
 let deleteTask = (e)=>{
-    e.parentElement.parentElement.remove();/*parentelement are ued for jumbing the parent(div)element*/
-    data.splice(e.parentElement.parentElement.id,1);/*what one you remove & how much you can remove*/
+    e.parentElement.parentElement.remove();
+    data.splice(e.parentElement.parentElement.id,1);
     localStorage.setItem("data" ,JSON.stringify(data));
     console.log(data);
 
@@ -92,7 +92,7 @@ let resetForm=()=>{
 };
 
 (()=>{
-    data=JSON.parse(localStorage.getItem("data")) || [] ;/* OR used for add data*/;/*retrive the data to store outside*/
+    data=JSON.parse(localStorage.getItem("data")) || [] ;
     createTasks();
     console.log("data");
 })();
